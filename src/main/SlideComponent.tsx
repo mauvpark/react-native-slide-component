@@ -1,8 +1,8 @@
 import React from "react";
 import { Animated, Dimensions, StyleProp, ViewStyle } from "react-native";
 
-import Left from "./Left/Left";
-import Right from "./Right/Right";
+import Left from "../left/Left";
+import Right from "../right/Right";
 
 interface ProviderProps {
 	componentWidth?: ViewStyle["width"];
@@ -24,7 +24,7 @@ interface RightViewProps {
 const toX = new Animated.Value(0);
 const windowWidth = Dimensions.get("window").width;
 
-export class index {
+export class SlideComponent {
 	constructor() {}
 
 	static moveLeftToRight = (leftWidth: string | number) => {
@@ -100,4 +100,4 @@ export class index {
 	};
 }
 
-export default index;
+export default SlideComponent;
