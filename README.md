@@ -35,13 +35,55 @@ Main component is `SlideComponent`. You could access all properties with declare
 | `LeftView`  | This component is left side view. You could place your components below like View component.  |
 | `RightView`  | This component is right side view. You could place your components below like View component. |
 
-- Types
+#### Params
+
+1. `<SlideComponent.Provider>`
+
+| Param  | Description  |
+|---|---|
+| componentWidth  | Provider's width, default "100%" (optional) |
+| componentHeight  | Provider's height, default "100%" (optional) |
+| children  | Provider's children components  |
+
+2. `<SlideComponent.LeftView>`
+
+| Param  | Description  |
+|---|---|
+| width  | The size of left view (optional) |
+| backgroundColor  | Background color of the view (optional) |
+| extraStyle  | All styles available (optional) |
+| children  | LeftView's children components  |
+
+3. `<SlideComponent.RightView>`
+
+| Param  | Description  |
+|---|---|
+| backgroundColor  | Background color of the view (optional) |
+| extraStyle  | All styles available (optional) |
+| children  | LeftView's children components  |
 
 ### Methods
 
 | Name  | Description  |
 |---|---|
-| moveLeftToRight  | If you want to move right side view, you could call this method.  |
-| moveRightToLeft  | This is for moving left side view. You can call this method in a right view's button. |
+| `moveLeftToRight`  | If you want to move right side view, you could call this method.  |
+| `moveRightToLeft`  | This is for moving left side view. You can call this method in a right view's button. |
 
+#### Params
 
+1. `SlideComponent.moveLeftToRight`
+
+| Param  | Description  |
+|---|---|
+| leftWidth  | If this param equals left view's width, left view will slide clearly. This param supports number and '%'  |
+| duration  | et slide velocity, default 500 (optional)  |
+
+2. `SlideComponent.moveRightToLeft`
+
+| Param  | Description  |
+|---|---|
+| duration  | et slide velocity, default 500 (optional)  |
+
+### Example
+
+Check out example folder.
