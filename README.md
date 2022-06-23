@@ -5,8 +5,7 @@
 https://user-images.githubusercontent.com/74028161/175226156-57f453a2-44d3-4a55-b91a-07ee7eb2ed6a.mp4
 
 ## Description
-
-This is simple slide component. You could use this component when you want to change view without navigation.
+This is a simple slide component. You could use this component when you want to change the view without navigation.
 
 ## How to install
 
@@ -24,8 +23,7 @@ expo install react-native-slide-component
 This library supports react-native version >= 0.68, but you could use in below version because it uses `Animated` and other simple components.
 
 ## SlideComponent
-
-Main component is `SlideComponent`. You could access all properties with declared `SlideComponent`.
+The main component is `SlideComponent`. You could access all properties with declared `SlideComponent`.
 
 ### Components
 
@@ -76,14 +74,14 @@ Main component is `SlideComponent`. You could access all properties with declare
 | Param  | Description  |
 |---|---|
 | leftWidth  | If this param equals left view's width, left view will slide clearly. This param supports number and '%'  |
-| duration  | et slide velocity, default 500 (optional)  |
+| duration  | Set slide velocity, default 500 (optional)  |
 
 2. `SlideComponent.moveRightToLeft`
 
 | Param  | Description  |
 |---|---|
-| duration  | et slide velocity, default 500 (optional)  |
+| duration  | Set slide velocity, default 500 (optional)  |
 
 ### Example
 
-Check out example folder.
+Check out the example folder.
