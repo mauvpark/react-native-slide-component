@@ -1,17 +1,23 @@
 {
   "name": "react-native-slide-component",
-  "version": "1.0.1",
-  "description": "",
+  "version": "1.0.2",
+  "description": "react native slide component",
   "main": "/src/index.js",
+  "types": "./index.d.ts",
   "private": false,
-  "scripts": {
-    "build": "webpack"
-  },
+  "scripts": {},
   "author": {
     "name": "mauvpark",
     "email": "mauvpark@gmail.com"
   },
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mauvpark/react-native-slide-component"
+  },
+  "bugs": {
+    "url": "https://github.com/mauvpark/react-native-slide-component/issues"
+  },
+  "license": "MIT",
   "devDependencies": {
     "@types/react-native": "^0.67.3",
     "typescript": "^4.4.4"
