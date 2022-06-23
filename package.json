@@ -1,6 +1,6 @@
 {
   "name": "react-native-slide-component",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "react native slide component",
   "main": "/src/index.js",
   "types": "./index.d.ts",
