@@ -5,6 +5,12 @@
   "main": "/src/index.js",
   "types": "./index.d.ts",
   "private": false,
+  "keywords": [
+    "react-native",
+    "expo",
+    "slide",
+    "view"
+  ],
   "scripts": {},
   "author": {
     "name": "mauvpark",
