@@ -20,7 +20,35 @@ yarn add react-native-slide-component
 expo install react-native-slide-component
 ```
 
-This library supports react-native version >= 0.68, but you could use in below version because it uses `Animated` and other simple components.
+## What's New in v2?
+
+The component instance should be created newly before use. It will prevent affecting another slide component. In v1, another component could be affected.
+
+```js
+// v1
+import { SlideComponent } from "react-native-slide-component";
+
+const example () => {
+  return (
+    <SlideComponent.Provider>
+      ...
+    </SlideComponent.Provider>
+  );
+}
+
+// v2
+import { SlideComponent } from "react-native-slide-component";
+
+const SlideView = new SlideComponent();
+
+const example2 () => {
+  return (
+    <SlideView.Provider>
+      ...
+    </SlideView.Provider>
+  );
+}
+```
 
 ## Example
 
@@ -29,27 +57,29 @@ import * as React from "react";
 import { SafeAreaView } from "react-native";
 import { SlideComponent } from "react-native-slide-component";
 
+const SlideView = new SlideComponent();
+
 const example = () => {
 
     function moveLeftToRight () {
         ... manipulate your states here ...
-        SlideComponent.moveLeftToRight("100%", 300);
+        SlideView.moveLeftToRight("100%", 300);
     }
 
     function moveRightToLeft () {
-        SlideComponent.moveRightToLeft(300);
+        SlideView.moveRightToLeft(300);
     }
 
     return (
         <SafeAreaView>
-          <SlideComponent.Provider>
-            <SlideComponent.LeftView width="100%">
+          <SlideView.Provider>
+            <SlideView.LeftView width="100%">
               ... your code for left view is here ...
-            </SlideComponent.LeftView>
-            <SlideComponent.RightView>
+            </SlideView.LeftView>
+            <SlideView.RightView>
               ... your code for right view is here ...
-            </SlideComponent.RightView>
-          </SlideComponent.Provider>
+            </SlideView.RightView>
+          </SlideView.Provider>
         </SafeAreaView>
     );
 }
@@ -58,7 +88,7 @@ export default example;
 ```
 
 ## SlideComponent
-The main component is `SlideComponent`. You could access all properties with declared `SlideComponent`.
+The main component is `SlideComponent`. You could access all properties with the declared `SlideComponent`'s instance.
 
 ### Components
 
@@ -70,7 +100,7 @@ The main component is `SlideComponent`. You could access all properties with dec
 
 #### Params
 
-1. `<SlideComponent.Provider>`
+1. `Provider`
 
 | Param  | Description  |
 |---|---|
@@ -78,7 +108,7 @@ The main component is `SlideComponent`. You could access all properties with dec
 | componentHeight  | Provider's height, default "100%" (optional) |
 | children  | Provider's children components  |
 
-2. `<SlideComponent.LeftView>`
+2. `LeftView`
 
 | Param  | Description  |
 |---|---|
@@ -87,7 +117,7 @@ The main component is `SlideComponent`. You could access all properties with dec
 | extraStyle  | All styles available (optional) |
 | children  | LeftView's children components  |
 
-3. `<SlideComponent.RightView>`
+3. `RightView`
 
 | Param  | Description  |
 |---|---|
@@ -104,14 +134,14 @@ The main component is `SlideComponent`. You could access all properties with dec
 
 #### Params
 
-1. `SlideComponent.moveLeftToRight`
+1. `moveLeftToRight`
 
 | Param  | Description  |
 |---|---|
 | leftWidth  | If this param equals left view's width, left view will slide clearly. This param supports number and '%'  |
 | duration  | Set slide velocity, default 500 (optional)  |
 
-2. `SlideComponent.moveRightToLeft`
+2. `moveRightToLeft`
 
 | Param  | Description  |
 |---|---|

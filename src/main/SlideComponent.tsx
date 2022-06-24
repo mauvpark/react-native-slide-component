@@ -4,13 +4,16 @@ import { LeftViewProps, ProviderProps, RightViewProps } from "../..";
 import Left from "../left/Left";
 import Right from "../right/Right";
 
-const toX = new Animated.Value(0);
-const windowWidth = Dimensions.get("window").width;
+class SlideComponent {
+	toX: Animated.Value;
+	windowWidth: number;
 
-export class SlideComponent {
-	constructor() {}
+	constructor() {
+		this.toX = new Animated.Value(0);
+		this.windowWidth = Dimensions.get("window").width;
+	}
 
-	static moveLeftToRight = (leftWidth: string | number, duration = 500) => {
+	public moveLeftToRight = (leftWidth: string | number, duration = 500) => {
 		let width = leftWidth;
 		const regex = /\d+/;
 		if (
@@ -19,26 +22,26 @@ export class SlideComponent {
 		) {
 			const searchedArray = regex.exec(leftWidth);
 			const sorted = parseInt((searchedArray as string[])[0]);
-			width = (windowWidth * sorted) / 100;
+			width = (this.windowWidth * sorted) / 100;
 		} else if (typeof leftWidth === "string") {
 			width = parseInt(leftWidth);
 		}
-		Animated.timing(toX, {
+		Animated.timing(this.toX, {
 			toValue: -width,
 			duration: duration,
 			useNativeDriver: false,
 		}).start();
 	};
 
-	static moveRightToLeft = (duration = 500) => {
-		Animated.timing(toX, {
+	public moveRightToLeft = (duration = 500) => {
+		Animated.timing(this.toX, {
 			toValue: 0,
 			duration: duration,
 			useNativeDriver: false,
 		}).start();
 	};
 
-	static Provider = ({
+	public Provider = ({
 		componentWidth = "100%",
 		componentHeight = "100%",
 		children,
@@ -52,7 +55,7 @@ export class SlideComponent {
 					height: componentHeight,
 					transform: [
 						{
-							translateX: toX,
+							translateX: this.toX,
 						},
 					],
 				}}
@@ -62,7 +65,7 @@ export class SlideComponent {
 		);
 	};
 
-	static LeftView = ({
+	public LeftView = ({
 		width = "100%",
 		backgroundColor,
 		extraStyle,
@@ -79,7 +82,7 @@ export class SlideComponent {
 		);
 	};
 
-	static RightView = ({
+	public RightView = ({
 		backgroundColor,
 		extraStyle,
 		children,

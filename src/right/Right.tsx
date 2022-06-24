@@ -5,7 +5,7 @@ interface RightProps {
 	width: ViewStyle["width"];
 	backgroundColor?: ViewStyle["backgroundColor"];
 	extraStyle?: StyleProp<ViewStyle>;
-	children: React.ReactNode;
+	children: React.ReactElement[] | React.ReactElement;
 }
 
 export class Right extends Component<RightProps> {

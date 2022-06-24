@@ -5,7 +5,7 @@ interface LeftProps {
 	width: ViewStyle["width"];
 	backgroundColor?: ViewStyle["backgroundColor"];
 	extraStyle?: StyleProp<ViewStyle>;
-	children: React.ReactNode;
+	children: React.ReactElement[] | React.ReactElement;
 }
 
 export class Left extends Component<LeftProps> {

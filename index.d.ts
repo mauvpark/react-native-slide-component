@@ -3,20 +3,20 @@ import { StyleProp, ViewStyle } from "react-native";
 export interface ProviderProps {
 	componentWidth?: ViewStyle["width"];
 	componentHeight?: ViewStyle["height"];
-	children: React.ReactNode;
+	children: React.ReactElement[] | React.ReactElement;
 }
 
 export interface LeftViewProps {
 	width?: ViewStyle["width"];
 	backgroundColor?: ViewStyle["backgroundColor"];
 	extraStyle?: StyleProp<ViewStyle>;
-	children: React.ReactNode;
+	children: JSX.Element;
 }
 
 export interface RightViewProps {
 	backgroundColor?: ViewStyle["backgroundColor"];
 	extraStyle?: StyleProp<ViewStyle>;
-	children: React.ReactNode;
+	children: JSX.Element;
 }
 
 /**
@@ -28,6 +28,26 @@ export interface RightViewProps {
  * @component Provider
  * @component LeftView
  * @component RightView
+ *
+ * @example
+ * // declare first
+ * import { SlideComponent } from "react-native-slide-component";
+ *
+ * const SlideView = new SlideComponent();
+ *
+ * // ust it in a component
+ * function example () {
+ *   return (
+ *   	<SlideView.Provider>
+ * 	   	<SlideView.LeftView>
+ *       	<Button title="Move right" onPress={() => SlideView.moveLeftToRight('50%', 300)} />
+ * 	   	</SlideView.LeftView>
+ * 	   	<SlideView.RightView>
+ *       	<Button title="Move right" onPress={() => SlideView.moveRightToLeft(300)} />
+ * 	   	<SlideView.RightView>
+ * 	  </SlideView.Provider>
+ * 	);
+ * }
  */
 export class SlideComponent {
 	/**
@@ -36,15 +56,8 @@ export class SlideComponent {
 	 *
 	 * @param leftWidth If this param equals left view's width, left view will slide clearly. This param supports number and '%'.
 	 * @param duration Set slide velocity, default 500
-	 *
-	 * @example
-	 * SlideComponent.moveLeftToRight('100%');
-	 *
-	 * SlideComponent.moveLeftToRight(150);
-	 *
-	 * <Button title="Move right" onPress={() => SlideComponent.moveLeftToRight('50%')} />
 	 */
-	static moveLeftToRight: (
+	public moveLeftToRight: (
 		leftWidth: string | number,
 		duration?: number
 	) => void;
@@ -53,13 +66,8 @@ export class SlideComponent {
 	 * This is for moving to left side view. You can call this method in a right view's button.
 	 *
 	 * @param duration Set slide velocity, default 500
-	 *
-	 * @example
-	 * SlideComponent.moveRightToLeft();
-	 *
-	 * <Button title="Move left" onPress={() => SlideComponent.moveRightToLeft()} />
 	 */
-	static moveRightToLeft: (duration?: number) => void;
+	public moveRightToLeft: (duration?: number) => void;
 
 	/**
 	 * Provider is upper view which includes both left and right views.
@@ -67,18 +75,8 @@ export class SlideComponent {
 	 * @param componentWidth Provider's width, default "100%"
 	 * @param componentHeight Provider's height, default "100%"
 	 * @param children Provider's children components
-	 *
-	 * @example
-	 * <SlideComponent.Provider>
-	 *   <SlideComponent.LeftView>
-	 *   ...
-	 *   </<SlideComponent.LeftView>
-	 *   <SlideComponent.RightView>
-	 *   ...
-	 *   </<SlideComponent.RightView>
-	 * </SlideComponent.Provider>
 	 */
-	static Provider: ({
+	public Provider: ({
 		componentWidth,
 		componentHeight,
 		children,
@@ -91,13 +89,8 @@ export class SlideComponent {
 	 * @param backgroundColor Background color of the view
 	 * @param extraStyle All styles available
 	 * @param children LeftView's children components
-	 *
-	 * @example
-	 * <SlideComponent.LeftView>
-	 *   <Text>Hello World!</Text>
-	 * </SlideComponent.LeftView>
 	 */
-	static LeftView: ({
+	public LeftView: ({
 		width,
 		backgroundColor,
 		extraStyle,
@@ -110,13 +103,8 @@ export class SlideComponent {
 	 * @param backgroundColor Background color of the view
 	 * @param extraStyle All styles available
 	 * @param children RightView's children components
-	 *
-	 * @example
-	 * <SlideComponent.RightView>
-	 *   <Text>Hello World!</Text>
-	 * </SlideComponent.RightView>
 	 */
-	static RightView: ({
+	public RightView: ({
 		backgroundColor,
 		extraStyle,
 		children,
