@@ -22,6 +22,41 @@ expo install react-native-slide-component
 
 This library supports react-native version >= 0.68, but you could use in below version because it uses `Animated` and other simple components.
 
+## Example
+
+```js
+import * as React from "react";
+import { SafeAreaView } from "react-native";
+import { SlideComponent } from "react-native-slide-component";
+
+const example = () => {
+
+    function moveLeftToRight () {
+        ... manipulate your states here ...
+        SlideComponent.moveLeftToRight("100%", 300);
+    }
+
+    function moveRightToLeft () {
+        SlideComponent.moveRightToLeft(300);
+    }
+
+    return (
+        <SafeAreaView>
+          <SlideComponent.Provider>
+            <SlideComponent.LeftView width="100%">
+              ... your code for left view is here ...
+            </SlideComponent.LeftView>
+            <SlideComponent.RightView>
+              ... your code for right view is here ...
+            </SlideComponent.RightView>
+          </SlideComponent.Provider>
+        </SafeAreaView>
+    );
+}
+
+export default example;
+```
+
 ## SlideComponent
 The main component is `SlideComponent`. You could access all properties with declared `SlideComponent`.
 
@@ -58,7 +93,7 @@ The main component is `SlideComponent`. You could access all properties with dec
 |---|---|
 | backgroundColor  | Background color of the view (optional) |
 | extraStyle  | All styles available (optional) |
-| children  | LeftView's children components  |
+| children  | RightView's children components  |
 
 ### Methods
 
@@ -81,7 +116,3 @@ The main component is `SlideComponent`. You could access all properties with dec
 | Param  | Description  |
 |---|---|
 | duration  | Set slide velocity, default 500 (optional)  |
-
-### Example
-
-Check out the example folder.
