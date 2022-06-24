@@ -1,6 +1,7 @@
 # react-native-slide-component
 
 [![GitHub license](https://img.shields.io/github/license/mauvpark/react-native-slide-component)](https://github.com/mauvpark/react-native-slide-component/blob/main/LICENSE.md)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/mauvpark/react-native-slide-component)
 
 https://user-images.githubusercontent.com/74028161/175226156-57f453a2-44d3-4a55-b91a-07ee7eb2ed6a.mp4
 
