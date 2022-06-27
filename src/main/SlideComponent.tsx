@@ -13,7 +13,10 @@ class SlideComponent {
 		this.windowWidth = Dimensions.get("window").width;
 	}
 
-	public moveLeftToRight = (leftWidth: string | number, duration = 500) => {
+	public moveLeftToRight = (
+		leftWidth: string | number = "100%",
+		duration: number = 500
+	) => {
 		let width = leftWidth;
 		const regex = /\d+/;
 		if (
