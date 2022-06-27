@@ -20,12 +20,12 @@ export interface RightViewProps {
 }
 
 export interface moveLeftToRightParams {
-	leftWidth?: string | number;
-	duration?: number;
+	leftWidth: string | number;
+	duration: number;
 }
 
 export interface moveRightToLeftParams {
-	duration?: number;
+	duration: number;
 }
 
 /**
@@ -63,20 +63,22 @@ export class SlideComponent {
 	 *
 	 * If you want to move to right side view, you could call this method.
 	 *
-	 * @param leftWidth If this param equals left view's width, left view will slide clearly. This param supports number and '%'.
-	 * @param duration Set slide velocity, default 500
+	 * @param leftWidth If this param equals left view's width, left view will slide clearly. This param supports number and '%'. Default value is "100%"
+	 * @param duration This param is to set slide velocity. Default value is 500.
 	 */
-	public moveLeftToRight: ({
-		leftWidth,
-		duration,
-	}: moveLeftToRightParams) => void;
+	public moveLeftToRight: (
+		leftWidth?: moveLeftToRightParams["leftWidth"],
+		duration?: moveLeftToRightParams["duration"]
+	) => void;
 
 	/**
 	 * This is for moving to left side view. You can call this method in a right view's button.
 	 *
-	 * @param duration Set slide velocity, default 500
+	 * @param duration This param is to set slide velocity. Default value is 500.
 	 */
-	public moveRightToLeft: ({ duration }: moveRightToLeftParams) => void;
+	public moveRightToLeft: (
+		duration?: moveRightToLeftParams["duration"]
+	) => void;
 
 	/**
 	 * Provider is upper view which includes both left and right views.

@@ -19,10 +19,10 @@ class SlideComponent {
 		this.windowWidth = Dimensions.get("window").width;
 	}
 
-	public moveLeftToRight = ({
-		leftWidth = "100%",
-		duration = 500,
-	}: moveLeftToRightParams) => {
+	public moveLeftToRight = (
+		leftWidth: moveLeftToRightParams["leftWidth"] = "100%",
+		duration: moveLeftToRightParams["duration"] = 500
+	) => {
 		let width = leftWidth;
 		const regex = /\d+/;
 		if (
@@ -42,7 +42,9 @@ class SlideComponent {
 		}).start();
 	};
 
-	public moveRightToLeft = ({ duration = 500 }: moveRightToLeftParams) => {
+	public moveRightToLeft = (
+		duration: moveRightToLeftParams["duration"] = 500
+	) => {
 		Animated.timing(this.toX, {
 			toValue: 0,
 			duration: duration,
