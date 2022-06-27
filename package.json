@@ -1,6 +1,6 @@
 {
   "name": "react-native-slide-component",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "react native slide component",
   "main": "./src/index.js",
   "types": "./index.d.ts",
@@ -9,7 +9,8 @@
     "react-native",
     "expo",
     "slide",
-    "view"
+    "view",
+    "component"
   ],
   "scripts": {},
   "author": {
@@ -26,8 +27,13 @@
   "license": "MIT",
   "devDependencies": {
     "@types/react": "^17.0.2",
-    "@types/react-native": "~0.67.6",
     "typescript": "^4.3.5"
+  },
+  "overrides": {
+    "@types/react-native": "0.69.1"
+  },
+  "resolutions": {
+    "@types/react-native": "0.69.1"
   },
   "peerDependencies": {
     "react-native": "^0.68.2"
