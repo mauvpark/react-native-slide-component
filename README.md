@@ -139,11 +139,11 @@ The main component is `SlideComponent`. You could access all properties with the
 
 | Param  | Description  |
 |---|---|
-| leftWidth  | If this param equals left view's width, left view will slide clearly. This param supports number and '%'  |
-| duration  | Set slide velocity, default 500 (optional)  |
+| leftWidth  | If this param equals left view's width, left view will slide clearly. This param supports number and '%'. Default value is "100%" (optional)  |
+| duration  | This param is for setting slide velocity. Default is 500 (optional)  |
 
 2. `moveRightToLeft`
 
 | Param  | Description  |
 |---|---|
-| duration  | Set slide velocity, default 500 (optional)  |
+| duration  | This param is for setting slide velocity. Default is 500 (optional)  |
