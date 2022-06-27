@@ -10,13 +10,13 @@ export interface LeftViewProps {
 	width?: ViewStyle["width"];
 	backgroundColor?: ViewStyle["backgroundColor"];
 	extraStyle?: StyleProp<ViewStyle>;
-	children: JSX.Element;
+	children: React.ReactElement[] | React.ReactElement;
 }
 
 export interface RightViewProps {
 	backgroundColor?: ViewStyle["backgroundColor"];
 	extraStyle?: StyleProp<ViewStyle>;
-	children: JSX.Element;
+	children: React.ReactElement[] | React.ReactElement;
 }
 
 /**
