@@ -19,6 +19,15 @@ export interface RightViewProps {
 	children: React.ReactElement[] | React.ReactElement;
 }
 
+export interface moveLeftToRightParams {
+	leftWidth?: string | number;
+	duration?: number;
+}
+
+export interface moveRightToLeftParams {
+	duration?: number;
+}
+
 /**
  * This is main component to handle both left and right views.
  *
@@ -57,17 +66,17 @@ export class SlideComponent {
 	 * @param leftWidth If this param equals left view's width, left view will slide clearly. This param supports number and '%'.
 	 * @param duration Set slide velocity, default 500
 	 */
-	public moveLeftToRight: (
-		leftWidth: string | number,
-		duration?: number
-	) => void;
+	public moveLeftToRight: ({
+		leftWidth,
+		duration,
+	}: moveLeftToRightParams) => void;
 
 	/**
 	 * This is for moving to left side view. You can call this method in a right view's button.
 	 *
 	 * @param duration Set slide velocity, default 500
 	 */
-	public moveRightToLeft: (duration?: number) => void;
+	public moveRightToLeft: ({ duration }: moveRightToLeftParams) => void;
 
 	/**
 	 * Provider is upper view which includes both left and right views.
