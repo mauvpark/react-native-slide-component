@@ -1,6 +1,12 @@
 import { Animated, Dimensions } from "react-native";
 
-import { LeftViewProps, ProviderProps, RightViewProps } from "../..";
+import {
+	LeftViewProps,
+	moveLeftToRightParams,
+	moveRightToLeftParams,
+	ProviderProps,
+	RightViewProps,
+} from "../..";
 import Left from "../left/Left";
 import Right from "../right/Right";
 
@@ -13,10 +19,10 @@ class SlideComponent {
 		this.windowWidth = Dimensions.get("window").width;
 	}
 
-	public moveLeftToRight = (
-		leftWidth: string | number = "100%",
-		duration: number = 500
-	) => {
+	public moveLeftToRight = ({
+		leftWidth = "100%",
+		duration = 500,
+	}: moveLeftToRightParams) => {
 		let width = leftWidth;
 		const regex = /\d+/;
 		if (
@@ -36,7 +42,7 @@ class SlideComponent {
 		}).start();
 	};
 
-	public moveRightToLeft = (duration = 500) => {
+	public moveRightToLeft = ({ duration = 500 }: moveRightToLeftParams) => {
 		Animated.timing(this.toX, {
 			toValue: 0,
 			duration: duration,
