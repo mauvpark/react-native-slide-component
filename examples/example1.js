@@ -1,8 +1,13 @@
+import * as React from "react";
+import { SlideComponent } from "react-native-slide-component";
+
+const SlideView = new SlideComponent();
+
 function Example() {
 	return (
 		<SafeAreaView style={styles.container}>
-			<SlideComponent.Provider>
-				<SlideComponent.LeftView
+			<SlideView.Provider>
+				<SlideView.LeftView
 					width="100%"
 					backgroundColor="yellow"
 					extraStyle={{
@@ -17,14 +22,12 @@ function Example() {
 							width: 150,
 							height: 50,
 						}}
-						onPress={() =>
-							SlideComponent.moveLeftToRight("100%", 500)
-						}
+						onPress={() => SlideView.moveLeftToRight("100%", 500)}
 					>
 						<Text>left</Text>
 					</TouchableOpacity>
-				</SlideComponent.LeftView>
-				<SlideComponent.RightView
+				</SlideView.LeftView>
+				<SlideView.RightView
 					backgroundColor="blue"
 					extraStyle={{
 						display: "flex",
@@ -38,12 +41,12 @@ function Example() {
 							width: 150,
 							height: 50,
 						}}
-						onPress={() => SlideComponent.moveRightToLeft(500)}
+						onPress={() => SlideView.moveRightToLeft(500)}
 					>
 						<Text>right</Text>
 					</TouchableOpacity>
-				</SlideComponent.RightView>
-			</SlideComponent.Provider>
+				</SlideView.RightView>
+			</SlideView.Provider>
 		</SafeAreaView>
 	);
 }
