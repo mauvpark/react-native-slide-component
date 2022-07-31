@@ -1,6 +1,6 @@
 {
   "name": "react-native-slide-component",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "react native slide component",
   "main": "./src/index.js",
   "types": "./index.d.ts",
@@ -31,6 +31,7 @@
     "typescript": "^4.3.5"
   },
   "peerDependencies": {
+    "react": "^17.0.2",
     "react-native": "^0.68.2"
   }
 }

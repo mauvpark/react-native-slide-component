@@ -1,4 +1,5 @@
-import { Animated, Dimensions } from "react-native";
+import * as React from "react";
+import { Animated, Dimensions, View } from "react-native";
 
 import {
 	LeftViewProps,
@@ -58,21 +59,16 @@ class SlideComponent {
 		children,
 	}: ProviderProps) => {
 		return (
-			<Animated.View
+			<View
 				style={{
 					display: "flex",
 					flexDirection: "row",
 					width: componentWidth,
 					height: componentHeight,
-					transform: [
-						{
-							translateX: this.toX,
-						},
-					],
 				}}
 			>
 				{children}
-			</Animated.View>
+			</View>
 		);
 	};
 
@@ -87,6 +83,11 @@ class SlideComponent {
 				width={width}
 				backgroundColor={backgroundColor}
 				extraStyle={extraStyle}
+				transform={[
+					{
+						translateX: this.toX as any,
+					},
+				]}
 			>
 				{children}
 			</Left>
@@ -103,6 +104,11 @@ class SlideComponent {
 				width="100%"
 				backgroundColor={backgroundColor}
 				extraStyle={extraStyle}
+				transform={[
+					{
+						translateX: this.toX as any,
+					},
+				]}
 			>
 				{children}
 			</Right>

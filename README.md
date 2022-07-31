@@ -8,12 +8,17 @@ https://user-images.githubusercontent.com/74028161/175226156-57f453a2-44d3-4a55-
 ## Description
 This is a simple slide component. You could use this component when you want to change the view without navigation.
 
-## Limitation - @important
-You must know React Native `TextInput` or `wxik/react-native-rich-editor` which should interact with users inside of `RightView` are not going to work as you expected.
+## ~~Limitation - @important~~
+~~You must know React Native `TextInput` or `wxik/react-native-rich-editor` which should interact with users inside of `RightView` are not going to work as you expected.~~
 
-> e.g. can not move cursor position what you want to place in `TextInput`, focus not working in `wxik/react-native-rich-editor`
+> ~~e.g. can not move cursor position what you want to place in `TextInput`, focus not working in `wxik/react-native-rich-editor`~~
+
   
-So, I recommend using navigation as possible as you can. But if you still want to use this library, then just use it for showing information or something simple things. If you do not need a complicated interaction component, you are good to go with this library.
+~~So, I recommend using navigation as possible as you can. But if you still want to use this library, then just use it for showing information or something simple things. If you do not need a complicated interaction component, you are good to go with this library.~~
+
+Before `Animated.View` was applied on a parent component which is called `Provider`, so children's view scope was changed through the parent's `Animated.View`. Thus, the focused child view was not scoped correctly and it made bugs(Scrolling, text input etc). 
+
+I changed `Animated.View` to the children, not the parent. The difference is the children's scopes will be applied through each `Animated.View` component, not by the parent anymore(From version 2.0.4).
 
 ## How to install
 

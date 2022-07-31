@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import { StyleProp, View, ViewStyle } from "react-native";
+import { Animated, StyleProp, TransformsStyle, ViewStyle } from "react-native";
 
 interface RightProps {
 	width: ViewStyle["width"];
 	backgroundColor?: ViewStyle["backgroundColor"];
 	extraStyle?: StyleProp<ViewStyle>;
 	children: React.ReactElement[] | React.ReactElement;
+	transform: TransformsStyle["transform"];
 }
 
 export class Right extends Component<RightProps> {
@@ -15,18 +16,19 @@ export class Right extends Component<RightProps> {
 
 	render() {
 		return (
-			<View
+			<Animated.View
 				style={[
 					{
 						width: this.props.width,
 						height: "100%",
 						backgroundColor: this.props.backgroundColor,
+						transform: this.props.transform,
 					},
 					this.props.extraStyle,
 				]}
 			>
 				{this.props.children}
-			</View>
+			</Animated.View>
 		);
 	}
 }
